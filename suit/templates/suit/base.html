@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,15 +9,14 @@
     <title>Tecnomarket</title>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap"
           rel="stylesheet">
+
     {% load static %}
-    {% block css %}
+    {% block css %}{% endblock %}
 
-    {% endblock %}
     <link rel="stylesheet" href="{% static 'suit/css/estilos.css' %}">
-
 </head>
-<body>
 
+<body>
 
 <header id="header">
     <img class="menu" src="{% static 'suit/img/menuiconwhite.png' %}" alt="menu" id="menu">
@@ -25,7 +25,6 @@
     </div>
 
     <div>
-
         <nav id="nav">
             <ul>
                 <li>
@@ -39,18 +38,13 @@
                 </li>
             </ul>
         </nav>
-
     </div>
-
 </header>
 
 <div id="contenido">
-
     {% block content %}
     {% endblock %}
-
 </div>
-
 
 <footer>
     <div class="marcas">
@@ -68,11 +62,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="{% static 'suit/js/menu.js' %}"></script>
 
-
-
-{% block js %}
-
-{% endblock %}
+{% block js %}{% endblock %}
 
 </body>
 </html>
