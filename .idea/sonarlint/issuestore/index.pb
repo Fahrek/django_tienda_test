@@ -49,3 +49,7 @@ M
 	manage.py,3\1\3156ad13e4d695cd526bbb7b031016ecba842270
 Q
 !suit/templates/suit/contacto.html,c\0\c06c3ff53b0135f18631a9fd8d1232dcc8ae7062
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+O
+suit/migrations/0001_initial.py,6\3\6325eb3143b4b431d560f65cef442fbbb77342c1

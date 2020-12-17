@@ -16,6 +16,7 @@ class Product(models.Model):
     price         = models.IntegerField()
     description   = models.TextField()
     new           = models.BooleanField()
+    image         = models.ImageField(upload_to='productos', null=True)
     brand         = models.ForeignKey(Brand, on_delete=models.PROTECT)
     fabr_date     = models.DateField()
     created_at    = models.DateField(auto_now_add=True)
