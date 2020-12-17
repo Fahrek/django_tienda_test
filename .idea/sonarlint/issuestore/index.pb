@@ -53,3 +53,7 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 O
 suit/migrations/0001_initial.py,6\3\6325eb3143b4b431d560f65cef442fbbb77342c1
+U
+%suit/migrations/0002_product_image.py,3\d\3dbf5faef5df1bcaeae9b1ff0c93aa9f14135745
+@
+requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
