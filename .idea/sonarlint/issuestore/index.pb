@@ -57,3 +57,7 @@ U
 %suit/migrations/0002_product_image.py,3\d\3dbf5faef5df1bcaeae9b1ff0c93aa9f14135745
 @
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
+O
+suit/migrations/0003_contact.py,2\9\29d12bf246e7059c142a234a378e0900d24f161d
+=
+suit/forms.py,f\1\f162d989fb9afc85df88fb32a4bb4ae732afb51d
