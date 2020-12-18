@@ -1,14 +1,15 @@
 from django.contrib import admin
-from .models import Brand, Product
+from .models import Brand, Product, Contact
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'new', 'brand']
+    list_display  = ['name', 'price', 'new', 'brand']
     list_editable = ['price']
     search_fields = ['name']
-    list_filter = ['brand', 'new']
+    list_filter   = ['brand', 'new']
     list_per_page = 100
 
 
 admin.site.register(Brand)
+admin.site.register(Contact)
 admin.site.register(Product, ProductAdmin)

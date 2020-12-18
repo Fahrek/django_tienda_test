@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class Brand(models.Model):
     name          = models.CharField(max_length=50)
     created_at    = models.DateField(auto_now_add=True)
@@ -25,3 +24,21 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
+req_opt = [
+    [0, 'consulta'],
+    [1, 'reclamo'],
+    [2, 'sugerencia'],
+    [3, 'felicitaciones'],
+]
+
+
+class Contact(models.Model):
+    name     = models.CharField(max_length=50)
+    email    = models.EmailField()
+    subject  = models.IntegerField(choices=req_opt)
+    message  = models.TextField()
+    advice   = models.BooleanField()
+
+    def __str__(self):
+        return self.name
