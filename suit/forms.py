@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact
+from .models import Contact, Product
 
 
 class ContactForm(forms.ModelForm):
@@ -9,3 +9,13 @@ class ContactForm(forms.ModelForm):
         model = Contact
         # fields = ['name', 'email', 'subject', 'message', 'advice']
         fields = '__all__'
+
+
+class ProductForm(forms.ModelForm):
+
+    class Meta:
+        model   = Product
+        fields  = '__all__'
+        widgets = {
+            "fabr_date": forms.SelectDateWidget()
+        }

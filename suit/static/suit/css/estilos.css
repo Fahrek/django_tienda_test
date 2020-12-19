@@ -6,11 +6,11 @@
 
 body {
     background-color:#EDF2F7;
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
 }
 
 h1,h2 {
-    font-family: 'Balsamiq Sans', cursive;
+    /*font-family: 'Balsamiq Sans', cursive;*/
 }
 
 label.error {
