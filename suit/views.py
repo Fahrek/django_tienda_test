@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product
 from .forms import ContactForm, ProductForm
 
 
 def home(request):
-
     products = Product.objects.all()  # Hace consulta y devuelve una lista de instancias de productos
 
     data = {
@@ -15,7 +14,6 @@ def home(request):
 
 
 def contact(request):
-
     data = {
         'form': ContactForm()
     }
@@ -32,12 +30,10 @@ def contact(request):
 
 
 def gallery(request):
-
     return render(request, 'suit/galeria.html')
 
 
 def addProduct(request):
-
     data = {
         'form': ProductForm()
     }
@@ -54,7 +50,6 @@ def addProduct(request):
 
 
 def listProduct(request):
-
     products = Product.objects.all()
 
     data = {
@@ -62,3 +57,29 @@ def listProduct(request):
     }
 
     return render(request, 'suit/producto/listar.html', data)
+
+
+def editProduct(request, id):
+    # Product.object.get(id=id)
+
+    product = get_object_or_404(Product, id=id)
+
+    data = {
+        'form': ProductForm(instance=product)
+    }
+
+    if request.method == 'POST':
+        form = ProductForm(data=request.POST, files=request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect(to='listproduct')
+        data['form'] = form
+
+    return render(request, 'suit/producto/modificar.html', data)
+
+
+def deleteProduct(request, id):
+    product = get_object_or_404(Product, id=id)
+    product.delete()
+
+    return redirect(to='listproduct')

@@ -14,6 +14,7 @@
                     <th>Precio</th>
                     <th>Marca</th>
                     <th>¿Es nuevo?</th>
+                    <th>Opciones</th>
                 </tr>
 
                 {% for product in products %}
@@ -23,11 +24,11 @@
                     <td>{{ product.price | intcomma }}</td>
                     <td>{{ product.brand | title    }}</td>
                     <td>
-                        {% if product.new %}
-                            SI
-                        {% else %}
-                            NO
-                        {% endif %}
+                        {% if product.new %} SI {% else %} NO {% endif %}
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-sm" href="{% url 'editproduct'   product.id %}">EDITAR</a>
+                        <a class="btn btn-danger  btn-sm" href="{% url 'deleteproduct' product.id %}">BORRAR</a>
                     </td>
                 </tr>
 

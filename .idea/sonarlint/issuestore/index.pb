@@ -61,3 +61,9 @@ O
 suit/migrations/0003_contact.py,2\9\29d12bf246e7059c142a234a378e0900d24f161d
 =
 suit/forms.py,f\1\f162d989fb9afc85df88fb32a4bb4ae732afb51d
+Y
+)suit/templates/suit/producto/agregar.html,1\9\192e778e89ec9e066429382619ac1fe00c3f3661
+X
+(suit/templates/suit/producto/listar.html,0\7\0758643a205804a2439f7b90fbb925241b834d44
+[
++suit/templates/suit/producto/modificar.html,f\6\f683e0964559d2650bc480c0f7b6264a366c7db5
