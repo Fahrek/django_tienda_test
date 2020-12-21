@@ -2,6 +2,28 @@
 
 {% load humanize %}
 
+{% block js %}
+    <script>
+        function eliminarProducto(id) {
+            Swal.fire({
+                "title": "¿Estás seguro?",
+                "text":  "esta acción no se puede deshacer",
+                "icon":  "question",
+                "showCancelButton":   true,
+                "cancelButtonText":   "No, Cancelar",
+                "confirmButtonText":  "Sí, Eliminar",
+                "reverseButtons":     true,
+                "confirmButtonColor": "#dc3545"
+            })
+            .then(function(result) {
+                if(result.isConfirmed) {
+                    window.location.href = "/delete-product/"+id+"/";
+                }
+            })
+        }
+    </script>
+{% endblock %}
+
 {% block content %}
     <br>
     <div class="card">
@@ -28,7 +50,7 @@
                     </td>
                     <td>
                         <a class="btn btn-success btn-sm" href="{% url 'editproduct'   product.id %}">EDITAR</a>
-                        <a class="btn btn-danger  btn-sm" href="{% url 'deleteproduct' product.id %}">BORRAR</a>
+                        <a class="btn btn-danger  btn-sm" href="#" onclick="eliminarProducto({{ product.id }})">BORRAR</a>
                     </td>
                 </tr>
 

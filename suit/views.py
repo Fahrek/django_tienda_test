@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product
 from .forms import ContactForm, ProductForm
@@ -22,7 +23,8 @@ def contact(request):
         form = ContactForm(data=request.POST)  # El POST es un diccionario que tiene todos los datos del form
         if form.is_valid():
             form.save()
-            data['msg'] = 'formulario enviado'
+            # data['msg'] = 'formulario enviado'
+            messages.success(request, 'formulario enviado')
         else:
             data['form'] = form
 
@@ -42,7 +44,8 @@ def addProduct(request):
         form = ProductForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
-            data['msg'] = 'producto guardado correctamente'
+            messages.success(request, 'producto guardado correctamente')
+            # data['msg'] = 'producto guardado correctamente'
         else:
             data['form'] = form
 
@@ -72,6 +75,7 @@ def editProduct(request, id):
         form = ProductForm(data=request.POST, files=request.FILES, instance=product)
         if form.is_valid():
             form.save()
+            messages.success(request, 'editado correctamente')
             return redirect(to='listproduct')
         data['form'] = form
 
@@ -81,5 +85,5 @@ def editProduct(request, id):
 def deleteProduct(request, id):
     product = get_object_or_404(Product, id=id)
     product.delete()
-
+    messages.success(request, 'eliminado satisfactoriamente')
     return redirect(to='listproduct')
