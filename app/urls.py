@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('suit.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Cuando se busca el MEDIA_URL se apunta hacia el MEDIA_ROOT de settings.py
 
 # Todos los archivos dinamicos que tengamos de base de datos en nuestro directorio de media van a ser accedidos de esta forma desde aquí

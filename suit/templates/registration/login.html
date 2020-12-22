@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body style="background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <br><br><br><br><br><br><br><br>
+            <div class="card">
+                <div class="card-body">
+                    <h2>Teknomarket</h2>
+                    <hr>
+                    <form action="" method="post">
+
+                        {% csrf_token %}
+
+                        {{ form | crispy }}
+                        <a href="{% url 'home' %}">Ir a inicio</a>
+                        <br>
+                        <input type="submit" value="login" class="btn btn-success">
+                        <br>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

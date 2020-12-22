@@ -1,4 +1,6 @@
+from django.http import Http404
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product
 from .forms import ContactForm, ProductForm
@@ -54,9 +56,17 @@ def addProduct(request):
 
 def listProduct(request):
     products = Product.objects.all()
+    page = request.GET.get('page', 1)  # Recoge el número de la var 'page' desde la URL, si no existe devuelve 1
+
+    try:
+        paginator = Paginator(products, 5)  # Instancia del paginador al que se le pasa lista de prod. y num. de pág.
+        products = paginator.page(page)  # Solo devuelve los registros del num. de pag. que tb se devuelve
+    except:
+        raise Http404  # Para cuando no existen registros en una pág. determinada
 
     data = {
-        'products': products
+        'entity': products,
+        'paginator': paginator
     }
 
     return render(request, 'suit/producto/listar.html', data)
