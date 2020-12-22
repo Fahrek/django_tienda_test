@@ -1,9 +1,11 @@
-from django.http import Http404
-from django.contrib import messages
+from django.http           import Http404
+from django.contrib        import messages
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth   import authenticate, login
+from django.shortcuts      import render, redirect, get_object_or_404
+
 from .models import Product
-from .forms import ContactForm, ProductForm
+from .forms  import ContactForm, ProductForm, RegisterForm
 
 
 def home(request):
@@ -97,3 +99,21 @@ def deleteProduct(request, id):
     product.delete()
     messages.success(request, 'eliminado satisfactoriamente')
     return redirect(to='listproduct')
+
+
+def register(request):
+    data = {
+        'form': RegisterForm()
+    }
+
+    if request.method == 'POST':
+        form = RegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+            login(request, user)
+            messages.success(request, 'registrado correctamente')
+            return redirect(to='home')
+        data['form'] = form
+
+    return render(request, 'registration/registro.html', data)

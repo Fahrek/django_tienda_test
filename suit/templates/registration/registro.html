@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Registro de usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -19,10 +19,10 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
 
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
-            <br><br><br><br><br><br><br><br>
+            <br><br><br>
             <div class="card">
                 <div class="card-body">
-                    <h2>Teknomarket | Login</h2>
+                    <h2>Teknomarket | Registro</h2>
                     <hr>
                     <form action="" method="POST">
 
@@ -30,11 +30,11 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
 
                         {{ form | crispy }}
 
-                        <a href="{% url 'home'     %}">Ir a inicio  </a> |
-                        <a href="{% url 'register' %}">Ir a registro</a>
+                        <a href="{% url 'home'  %}">Ir a inicio   </a> |
+                        <a href="{% url 'login' %}">Iniciar Sesión</a>
 
                         <br>
-                        <input type="submit" value="login" class="btn btn-success">
+                        <input type="submit" value="registrar" class="btn btn-success">
                         <br>
 
                     </form>

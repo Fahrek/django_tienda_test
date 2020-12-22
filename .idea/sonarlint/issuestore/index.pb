@@ -67,3 +67,9 @@ X
 (suit/templates/suit/producto/listar.html,0\7\0758643a205804a2439f7b90fbb925241b834d44
 [
 +suit/templates/suit/producto/modificar.html,f\6\f683e0964559d2650bc480c0f7b6264a366c7db5
+R
+"suit/templates/suit/paginator.html,9\b\9bb6095e8954545e47d5e5bd502e27d15d660d94
+V
+&suit/templates/registration/login.html,b\4\b41868f2a9f6c898bc87c3bbfb4c7ce54003dce2
+Y
+)suit/templates/registration/registro.html,2\c\2c0c2b1ee10fb63e742423f4105f303521287565
