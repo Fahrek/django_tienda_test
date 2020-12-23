@@ -38,12 +38,16 @@
                 <li>
                     <a href="{% url 'gallery'     %}">Galería</a>
                 </li>
+            {% if perms.suit.add_product %}
                 <li>
                     <a href="{% url 'addproduct'  %}">Añadir producto</a>
                 </li>
+            {% endif %}
+            {% if perms.suit.view_product %}
                 <li>
                     <a href="{% url 'listproduct' %}">Productos</a>
                 </li>
+            {% endif %}
                 {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}">Cerrar Sesión</a>

@@ -3,6 +3,7 @@ from django.contrib        import messages
 from django.core.paginator import Paginator
 from django.contrib.auth   import authenticate, login
 from django.shortcuts      import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required, permission_required
 
 from .models import Product
 from .forms  import ContactForm, ProductForm, RegisterForm
@@ -35,10 +36,12 @@ def contact(request):
     return render(request, 'suit/contacto.html', data)
 
 
+#@login_required
 def gallery(request):
     return render(request, 'suit/galeria.html')
 
 
+@permission_required('suit.add_product')
 def addProduct(request):
     data = {
         'form': ProductForm()
@@ -56,6 +59,7 @@ def addProduct(request):
     return render(request, 'suit/producto/agregar.html', data)
 
 
+@permission_required('suit.view_product')
 def listProduct(request):
     products = Product.objects.all()
     page = request.GET.get('page', 1)  # Recoge el número de la var 'page' desde la URL, si no existe devuelve 1
@@ -74,9 +78,9 @@ def listProduct(request):
     return render(request, 'suit/producto/listar.html', data)
 
 
+@permission_required('suit.change_product')
 def editProduct(request, id):
     # Product.object.get(id=id)
-
     product = get_object_or_404(Product, id=id)
 
     data = {
@@ -94,6 +98,7 @@ def editProduct(request, id):
     return render(request, 'suit/producto/modificar.html', data)
 
 
+@permission_required('suit.delete_product')
 def deleteProduct(request, id):
     product = get_object_or_404(Product, id=id)
     product.delete()

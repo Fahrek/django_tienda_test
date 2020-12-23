@@ -49,8 +49,12 @@
                         {% if product.new %} SI {% else %} NO {% endif %}
                     </td>
                     <td>
-                        <a class="btn btn-success btn-sm" href="{% url 'editproduct'   product.id %}">EDITAR</a>
-                        <a class="btn btn-danger  btn-sm" href="#" onclick="eliminarProducto({{ product.id }})">BORRAR</a>
+                        {% if perms.suit.change_product %}
+                            <a class="btn btn-success btn-sm" href="{% url 'editproduct'   product.id %}">EDITAR</a>
+                        {% endif %}
+                        {% if perms.suit.delete_product %}
+                            <a class="btn btn-danger  btn-sm" href="#" onclick="eliminarProducto({{ product.id }})">BORRAR</a>
+                        {% endif %}
                     </td>
                 </tr>
 
